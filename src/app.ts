@@ -52,7 +52,7 @@ export class App {
   private initMiddlewares() {
     this.app.use(morgan(LOG_FORMAT || 'dev', { stream }));
     this.app.use(cors({ origin: ORIGIN }));
-    this.app.use(helmet());
+    // this.app.use(helmet());
     this.app.use(compression());
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
