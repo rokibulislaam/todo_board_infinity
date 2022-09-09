@@ -8,6 +8,7 @@ import { logger, stream } from '@utils/logger';
 import mongoose from 'mongoose';
 import { dbConnection } from './databases';
 import helmet from 'helmet';
+import agenda from '@schedulers/agenda.scheduler';
 export class App {
   public app: express.Application;
   public env: string;
@@ -18,6 +19,7 @@ export class App {
     this.env = NODE_ENV || 'development';
     this.port = PORT || 3001;
     this.initDatabase();
+    this.initSchedulers()
     this.initMiddlewares();
     this.initRoutes(routes);
   }
@@ -40,6 +42,9 @@ export class App {
         logger.info('MongoDB connected');
       }
     });
+  }
+  private initSchedulers() {
+    agenda.start();
   }
   private initMiddlewares() {
     this.app.use(morgan(LOG_FORMAT || 'dev', { stream }));
