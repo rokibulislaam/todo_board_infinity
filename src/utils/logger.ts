@@ -1,13 +1,13 @@
-import { existsSync, mkdirSync } from 'fs';
-import { join } from 'path';
+// import { existsSync, mkdirSync } from 'fs';
+// import { join } from 'path';
 import winston from 'winston';
 import { LOG_DIR } from '../config';
 
-const logDir: string = join(__dirname, LOG_DIR || "../logs");
+// const logDir: string = join(__dirname, LOG_DIR || "../logs");
 
-if (!existsSync(logDir)) {
-  mkdirSync(logDir);
-}
+// if (!existsSync(logDir)) {
+//   mkdirSync(logDir);
+// }
 
 const logFormat = winston.format.printf(
   ({ timestamp, level, message }) => `${timestamp} ${level}: ${message}`

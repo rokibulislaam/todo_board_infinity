@@ -1,0 +1,59 @@
+tags:
+  - name: tasks
+    description: Endpoint for managing tasks
+
+paths:
+  /list:
+    get:
+      tags:
+        - tasks
+      summary: Get the list of all tasks
+      responses:
+        200:
+          description: "OK"
+        500:
+          description: "Server Error"
+  /add:
+    post:
+      tags:
+        - tasks
+      summary: Add a new task
+      parameters:
+        - name: body
+          in: body
+          description: Task data
+          required: true
+          schema:
+            $ref: "#/definitions/task"
+      responses:
+        201:
+          description: "Created"
+
+# definitions
+definitions:
+  task:
+    type: object
+    required:
+      - taskName
+      - creator
+      - taskDesc
+      - duration
+
+    properties:
+      taskName:
+        type: string
+        description: Name of the task
+      creator:
+        type: string
+        description: creator of the task
+
+      taskDesc:
+        type: string
+        description: Description of the task
+      duration:
+        type: number
+        description: Duration of the task in ms, after the specified duration, the task will be removed from the database
+
+schemes:
+  - https
+  - http

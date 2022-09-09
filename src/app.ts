@@ -8,6 +8,8 @@ import { logger, stream } from './utils/logger';
 import mongoose from 'mongoose';
 import { dbConnection } from './databases';
 import helmet from 'helmet';
+import swaggerJSDoc from 'swagger-jsdoc';
+import swaggerUi from 'swagger-ui-express';
 import agenda from './schedulers/agenda.scheduler';
 export class App {
   public app: express.Application;
@@ -19,9 +21,10 @@ export class App {
     this.env = NODE_ENV || 'development';
     this.port = PORT || 3001;
     this.initDatabase();
-    this.initSchedulers()
+    this.initSchedulers();
     this.initMiddlewares();
     this.initRoutes(routes);
+    this.initSwagger();
   }
 
   public startServer() {
@@ -58,5 +61,19 @@ export class App {
     for (const route of routes) {
       this.app.use('/', route.router);
     }
+  }
+
+  private initSwagger() {
+    const specs = swaggerJSDoc({
+      swaggerDefinition: {
+        info: {
+          title: 'Todo Board Infinity REST API',
+          version: '1.0.0',
+          description: `Please test the endpoints mentioned in the assignment. This application uses agenda to schedule jobs. Note: No need to authorize, authentication hasn't been implemented yet`,
+        },
+      },
+      apis: ['swagger.yaml'],
+    });
+    this.app.use('/', swaggerUi.serve, swaggerUi.setup(specs));
   }
 }
