@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { Routes } from '@/interfaces/routes.interface';
-import taskController from '@/controllers/task.controller';
+import { Routes } from '../interfaces/routes.interface';
+import taskController from '../controllers/task.controller';
 
 class TasksRoute implements Routes {
   public path = '/';

@@ -1,4 +1,4 @@
-import { DB_CONNECTION_STRING } from '@/config';
+import { DB_CONNECTION_STRING } from '../config';
 import Agenda from 'agenda';
 
 const agenda = new Agenda({

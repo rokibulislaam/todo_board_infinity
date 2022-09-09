@@ -1,6 +1,6 @@
-import { Task } from '@/interfaces/task.interface';
-import TaskModel from '@/models/task.model';
-import agenda from '@/schedulers/agenda.scheduler';
+import { Task } from '../interfaces/task.interface';
+import TaskModel from '../models/task.model';
+import agenda from '../schedulers/agenda.scheduler';
 
 class TaskService {
   public taskModel = TaskModel;

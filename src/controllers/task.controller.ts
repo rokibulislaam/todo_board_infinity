@@ -1,5 +1,5 @@
-import { Task } from '@/interfaces/task.interface';
-import TaskService from '@/services/task.service';
+import { Task } from '../interfaces/task.interface';
+import TaskService from '../services/task.service';
 import _ from 'lodash';
 import { Request, Response, NextFunction } from 'express';
 

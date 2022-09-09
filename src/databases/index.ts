@@ -1,4 +1,4 @@
-import { DB_CONNECTION_STRING } from '@config';
+import { DB_CONNECTION_STRING } from '../config';
 
 export const dbConnection = {
   url: DB_CONNECTION_STRING,

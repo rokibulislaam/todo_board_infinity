@@ -2,13 +2,13 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import compression from 'compression';
-import { Routes } from '@interfaces/routes.interface';
-import { LOG_FORMAT, NODE_ENV, ORIGIN, PORT } from '@config';
-import { logger, stream } from '@utils/logger';
+import { Routes } from './interfaces/routes.interface';
+import { LOG_FORMAT, NODE_ENV, ORIGIN, PORT } from './config';
+import { logger, stream } from './utils/logger';
 import mongoose from 'mongoose';
 import { dbConnection } from './databases';
 import helmet from 'helmet';
-import agenda from '@schedulers/agenda.scheduler';
+import agenda from './schedulers/agenda.scheduler';
 export class App {
   public app: express.Application;
   public env: string;
