@@ -1,0 +1,9 @@
+{
+  "name": "todo_board_infinity",
+  "version": "1.0.0",
+  "description": "A todo app for Board Infinity Backend SDE assignment",
+  "main": "index.js",
+  "author": "Rokibul Islam <rokibul630@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
