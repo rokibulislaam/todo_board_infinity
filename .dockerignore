@@ -1,0 +1,19 @@
+.git/
+.gitignore
+.next/                # Existing Next.js builds
+.dockerignore
+Dockerfile
+docker-compose.yml
+node_modules/         # Installed inside container
+nginx/
+**/node_modules
+dist/
+.git
+*Dockerfile*
+*docker-compose*
+node_modules
+Database/
+db.json
+docker-compose*
+.env.development.local
+*.env*
