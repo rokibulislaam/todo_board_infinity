@@ -34,8 +34,8 @@ export class App {
     }
     mongoose.connect(dbConnection.url as string, (err) => {
       if (err) {
-        console.error(err);
         logger.error(err);
+        process.exit(1);
       } else {
         logger.info('MongoDB connected');
       }
